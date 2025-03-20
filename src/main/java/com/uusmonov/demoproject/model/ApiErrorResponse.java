@@ -1,4 +1,4 @@
-package com.uusmonov.challenge.model;
+package com.uusmonov.demoproject.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,6 +1,6 @@
-package com.uusmonov.challenge.exception;
+package com.uusmonov.demoproject.exception;
 
-import com.uusmonov.challenge.model.ApiErrorResponse;
+import com.uusmonov.demoproject.model.ApiErrorResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -21,8 +21,8 @@ public class GlobalExceptionHandler {
     private static final String WENT_WRONG = "Something went wrong";
 
 
-    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
-    public ResponseEntity<ApiErrorResponse> handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException ex, HttpServletRequest request, HandlerMethod handlerMethod) {
+    @ExceptionHandler({MethodArgumentTypeMismatchException.class, IllegalArgumentException.class})
+    public ResponseEntity<ApiErrorResponse> handleMethodArgumentTypeMismatchException(Exception ex, HttpServletRequest request, HandlerMethod handlerMethod) {
         logError(request, handlerMethod, ex);
         return ResponseEntity.badRequest().body(new ApiErrorResponse(ex.getLocalizedMessage()) {
         });

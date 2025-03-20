@@ -1,1 +1,15 @@
-spring.application.name=demo-project
+spring:
+  application:
+    name: demo-project
+
+
+webclient:
+  basePath: "https://official-joke-api.appspot.com"
+  timeout:
+    connect: 5000
+    read: 5000
+    write: 5000
+    response: 5000
+
+server:
+  port: 9191
